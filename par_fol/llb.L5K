@@ -1,0 +1,395 @@
+﻿(*********************************************
+
+  Import-Export
+  Version   := RSLogix 5000 v23.00
+  Owner     := SWAT, SUTD
+  Exported  := Tue May 03 15:32:59 2016
+
+  Note:  File encoded in UTF-8.  Only edit file in a program 
+         which supports UTF-8 (like Notepad, not Wordpad).
+
+**********************************************)
+IE_VER := 2.14;
+
+CONTROLLER C1_1756 (ProcessorType := "1756-L71",
+                    Major := 23,
+                    TimeSlice := 20,
+                    ShareUnusedTimeSlice := 1,
+                    CommPath := "USB\16",
+                    RedundancyEnabled := 0,
+                    KeepTestEditsOnSwitchOver := 0,
+                    DataTablePadPercentage := 50,
+                    SecurityCode := 0,
+                    ChangesToDetect := 16#ffff_ffff_ffff_ffff,
+                    SFCExecutionControl := "CurrentActive",
+                    SFCRestartPosition := "MostRecent",
+                    SFCLastScan := "DontScan",
+                    SerialNumber := 16#00c1_9819,
+                    MatchProjectToController := No,
+                    CanUseRPIFromProducer := No,
+                    InhibitAutomaticFirmwareUpdate := 0,
+                    PassThroughConfiguration := EnabledWithAppend,
+                    DownloadProjectDocumentationAndExtendedProperties := Yes)
+MODULE Local (Parent := "Local",
+              ParentModPortId := 1,
+              CatalogNumber := "1756-L71",
+              Vendor := 1,
+              ProductType := 14,
+              ProductCode := 92,
+              Major := 23,
+              Minor := 12,
+              PortLabel := "RxBACKPLANE",
+              ChassisSize := 7,
+              Slot := 0,
+              Mode := 2#0000_0000_0000_0001,
+              CompatibleModule := 0,
+              KeyMask := 2#0000_0000_0001_1111)
+END_MODULE
+
+MODULE C1_1756_EN2TR (Parent := "Local",
+                      ParentModPortId := 1,
+                      CatalogNumber := "1756-EN2TR",
+                      Vendor := 1,
+                      ProductType := 12,
+                      ProductCode := 200,
+                      Major := 10,
+                      Minor := 1,
+                      PortLabel := "RxBACKPLANE",
+                      Slot := 1,
+                      NodeAddress := "192.168.1.151",
+                      Mode := 2#0000_0000_0000_0000,
+                      CompatibleModule := 1,
+                      KeyMask := 2#0000_0000_0001_1111)
+		ExtendedProp := [[[___<public><ConfigID>4325481</ConfigID></public>___]]]
+END_MODULE
+
+MODULE C1_DI (Parent := "Local",
+              ParentModPortId := 1,
+              CatalogNumber := "1756-IB16D",
+              Vendor := 1,
+              ProductType := 7,
+              ProductCode := 2,
+              Major := 3,
+              Minor := 1,
+              PortLabel := "RxBACKPLANE",
+              Slot := 2,
+              CommMethod := 536870913,
+              ConfigMethod := 8388610,
+              Mode := 2#0000_0000_0000_0000,
+              CompatibleModule := 1,
+              KeyMask := 2#0000_0000_0001_1111)
+		ConfigData  := [44,17,1,0,0,0,1,1,1,1,0,0,0,0,65535,65535,65535,0,65535,0];
+CONNECTION StandardInput (Rate := 20000,
+                          EventID := 0)
+		InputData  := [65535,32768,[682999500,-2147483648],0,0,65535,0];
+		InputForceData := [-1,-1,0,0,0,-128,0,0,-52,-66,-75,40,0,0,0,-128,0,0,0,0,0,0,0,0,-1,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+		,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+END_CONNECTION
+
+END_MODULE
+
+MODULE C1_DO (Parent := "Local",
+              ParentModPortId := 1,
+              CatalogNumber := "1756-OB16D",
+              Vendor := 1,
+              ProductType := 7,
+              ProductCode := 4,
+              Major := 3,
+              Minor := 1,
+              PortLabel := "RxBACKPLANE",
+              Slot := 3,
+              CommMethod := 536870914,
+              ConfigMethod := 8388612,
+              Mode := 2#0000_0000_0000_0000,
+              CompatibleModule := 1,
+              KeyMask := 2#0000_0000_0001_1111)
+		ConfigData  := [44,19,1,0,0,0,0,0,0,0,65535,65535,65535,0];
+CONNECTION Diagnostic (Rate := 20000,
+                       EventID := 0)
+		InputData  := [32768,10240,[43819783,-2147483648],0,32768,0,0];
+		InputForceData := [0,-128,0,0,0,40,0,0,7,-93,-100,2,0,0,0,-128,0,0,0,0,0,-128,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+		,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+		OutputData  := [10240];
+		OutputForceData := [0,40,0,0,0,0,0,0,0,0,0,0];
+END_CONNECTION
+
+END_MODULE
+
+MODULE C1_AI (Parent := "Local",
+              ParentModPortId := 1,
+              CatalogNumber := "1756-IF8IH/A",
+              Vendor := 1,
+              ProductType := 10,
+              ProductCode := 451,
+              Major := 1,
+              Minor := 1,
+              PortLabel := "RxBACKPLANE",
+              Slot := 4,
+              Mode := 2#0000_0000_0000_0000,
+              CompatibleModule := 1,
+              KeyMask := 2#0000_0000_0001_1111)
+		ExtendedProp := [[[___<public><ConfigID>900</ConfigID></public>___]]]
+		ConfigData  := [396,225,1,2,115,[0,4,0,0.00000000e+000,4.00000000e+000,2.00000000e+001,0.00000000e+000,1.00000000e+002
+		,0.00000000e+000,1.00000000e+002,0.00000000e+000,1.00000000e+002,0.00000000e+000,0.00000000e+000
+		],[0,4,0,0.00000000e+000,4.00000000e+000,2.00000000e+001,0.00000000e+000,1.00000000e+002,0.00000000e+000
+		,1.00000000e+002,0.00000000e+000,1.00000000e+002,0.00000000e+000,0.00000000e+000],[0,4,0,0.00000000e+000
+		,4.00000000e+000,2.00000000e+001,0.00000000e+000,1.00000000e+002,0.00000000e+000,1.00000000e+002
+		,0.00000000e+000,1.00000000e+002,0.00000000e+000,0.00000000e+000],[0,4,0,0.00000000e+000,4.00000000e+000
+		,2.00000000e+001,0.00000000e+000,1.00000000e+002,0.00000000e+000,1.00000000e+002,0.00000000e+000
+		,1.00000000e+002,0.00000000e+000,0.00000000e+000],[0,4,0,0.00000000e+000,4.00000000e+000,2.00000000e+001
+		,0.00000000e+000,1.00000000e+002,0.00000000e+000,1.00000000e+002,0.00000000e+000,1.00000000e+002
+		,0.00000000e+000,0.00000000e+000],[0,4,0,0.00000000e+000,4.00000000e+000,2.00000000e+001,0.00000000e+000
+		,1.00000000e+002,0.00000000e+000,1.00000000e+002,0.00000000e+000,1.00000000e+002,0.00000000e+000
+		,0.00000000e+000],[0,4,0,0.00000000e+000,4.00000000e+000,2.00000000e+001,0.00000000e+000,1.00000000e+002
+		,0.00000000e+000,1.00000000e+002,0.00000000e+000,1.00000000e+002,0.00000000e+000,0.00000000e+000
+		],[0,4,0,0.00000000e+000,4.00000000e+000,2.00000000e+001,0.00000000e+000,1.00000000e+002,0.00000000e+000
+		,1.00000000e+002,0.00000000e+000,1.00000000e+002,0.00000000e+000,0.00000000e+000],15,0];
+CONNECTION InputData (Rate := 100000,
+                      EventID := 0)
+		InputData  := [-772,-1,-128,10,0,74,74,74,74,74,74,-1.03938293e+000,2.44348755e+001,-3.62500000e+000,-3.62500000e+000
+		,-3.62500000e+000,-3.62500000e+000,-3.62500000e+000,-3.62500000e+000,[-411066791,-2147483648
+		],15157,0];
+		InputForceData := [-4,-4,-1,-128,10,0,74,74,74,74,74,74,0,32,-123,-65,88,121,-61,65,0,0,104,-64,0,0,104,-64,0,0,104,-64,0,0,104,-64,0,0,104
+		,-64,0,0,104,-64,113,95,-127,-25,0,0,0,-128,-89,59,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+		,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+END_CONNECTION
+
+END_MODULE
+
+MODULE C1_AO (Parent := "Local",
+              ParentModPortId := 1,
+              CatalogNumber := "1756-OF8IH/A",
+              Vendor := 1,
+              ProductType := 10,
+              ProductCode := 452,
+              Major := 1,
+              Minor := 1,
+              PortLabel := "RxBACKPLANE",
+              Slot := 5,
+              Mode := 2#0000_0000_0000_0000,
+              CompatibleModule := 1,
+              KeyMask := 2#0000_0000_0001_1111)
+		ExtendedProp := [[[___<public><ConfigID>1000</ConfigID></public>___]]]
+		ConfigData  := [364,225,1,0,0,[0,2,0.00000000e+000,0.00000000e+000,0.00000000e+000,4.00000000e+000,2.00000000e+001
+		,0.00000000e+000,1.00000000e+002,0.00000000e+000,1.00000000e+002,0.00000000e+000],[0,2,0.00000000e+000
+		,0.00000000e+000,0.00000000e+000,4.00000000e+000,2.00000000e+001,0.00000000e+000,1.00000000e+002
+		,0.00000000e+000,1.00000000e+002,0.00000000e+000],[0,2,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		,4.00000000e+000,2.00000000e+001,0.00000000e+000,1.00000000e+002,0.00000000e+000,1.00000000e+002
+		,0.00000000e+000],[0,2,0.00000000e+000,0.00000000e+000,0.00000000e+000,4.00000000e+000,2.00000000e+001
+		,0.00000000e+000,1.00000000e+002,0.00000000e+000,1.00000000e+002,0.00000000e+000],[0,2,0.00000000e+000
+		,0.00000000e+000,0.00000000e+000,4.00000000e+000,2.00000000e+001,0.00000000e+000,1.00000000e+002
+		,0.00000000e+000,1.00000000e+002,0.00000000e+000],[0,2,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		,4.00000000e+000,2.00000000e+001,0.00000000e+000,1.00000000e+002,0.00000000e+000,1.00000000e+002
+		,0.00000000e+000],[0,2,0.00000000e+000,0.00000000e+000,0.00000000e+000,4.00000000e+000,2.00000000e+001
+		,0.00000000e+000,1.00000000e+002,0.00000000e+000,1.00000000e+002,0.00000000e+000],[0,2,0.00000000e+000
+		,0.00000000e+000,0.00000000e+000,4.00000000e+000,2.00000000e+001,0.00000000e+000,1.00000000e+002
+		,0.00000000e+000,1.00000000e+002,0.00000000e+000],15,0];
+CONNECTION OutputData (Rate := 100000,
+                       EventID := 0)
+		InputData  := [254,-1,-128,0,-126,-126,-126,-126,-126,-126,-126,9.50000000e+001,0.00000000e+000,0.00000000e+000
+		,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,[-413351857
+		,-2147483648],12923,0];
+		InputForceData := [-2,0,-1,-128,0,-126,-126,-126,-126,-126,-126,-126,0,0,-66,66,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,79,-64,92,-25
+		,0,0,0,-128,123,50,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+		,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+		OutputData  := [9.50000000e+001,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000,0.00000000e+000
+		,0.00000000e+000,0.00000000e+000];
+		OutputForceData := [0,0,-56,66,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+		,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+END_CONNECTION
+
+END_MODULE
+
+ADD_ON_INSTRUCTION_DEFINITION ADD_A (Revision := "1.0",
+                                     ExecutePrescan := No,
+                                     ExecutePostscan := No,
+                                     ExecuteEnableInFalse := No,
+                                     CreatedDate := "2016-04-26T05:21:03.199Z",
+                                     CreatedBy := "SWAT-PC\naman",
+                                     EditedDate := "2016-04-26T07:34:21.035Z",
+                                     EditedBy := "SWAT-PC\naman",
+                                     SoftwareRevision := "v23.00")
+
+PARAMETERS
+EnableIn : BOOL (Description := "Enable Input - System Defined Parameter",
+                    Usage := Input,
+                    RADIX := Decimal,
+                    Required := No,
+                    Visible := No,
+                    ExternalAccess := Read Only);
+EnableOut : BOOL (Description := "Enable Output - System Defined Parameter",
+                     Usage := Output,
+                     RADIX := Decimal,
+                     Required := No,
+                     Visible := No,
+                     ExternalAccess := Read Only);
+Source_A : DINT (Usage := Input,
+                    RADIX := Decimal,
+                    Required := Yes,
+                    Visible := Yes,
+                    DefaultData := 0);
+Source_B : DINT (Usage := Input,
+                    RADIX := Decimal,
+                    Required := No,
+                    Visible := Yes,
+                    DefaultData := 0);
+Dest : DINT (Usage := Output,
+                RADIX := Decimal,
+                Required := Yes,
+                Visible := Yes,
+                ExternalAccess := Read/Write,
+                DefaultData := 0);
+END_PARAMETERS
+
+LOCAL_TAGS
+test : DINT (RADIX := Decimal,
+               ExternalAccess := None,
+               DefaultData := 0);
+END_LOCAL_TAGS
+
+ROUTINE Logic 
+		N: ADD(Source_A,4,Dest);
+END_ROUTINE
+
+END_ADD_ON_INSTRUCTION_DEFINITION
+
+TAG
+Always_OFF : BOOL (RADIX := Decimal) := 0;
+Always_ON : BOOL (RADIX := Decimal) := 1;
+Amp_Meter_Seq : INT (RADIX := Decimal) := 19;
+AM_Percentage : REAL (RADIX := Float) := 9.50000000e+001;
+DI_00 : BOOL (RADIX := Binary) := 0;
+DI_01 : BOOL (RADIX := Binary) := 0;
+DI_02 : BOOL (RADIX := Decimal) := 0;
+DI_03 : BOOL (RADIX := Decimal) := 0;
+DI_04 : BOOL (RADIX := Decimal) := 0;
+DI_05 : BOOL (RADIX := Decimal) := 0;
+DI_06 : BOOL (RADIX := Decimal) := 0;
+DI_07 : BOOL (RADIX := Decimal) := 0;
+DI_08 : BOOL (RADIX := Decimal) := 0;
+DI_09 : BOOL (RADIX := Decimal) := 0;
+DI_10 : BOOL (RADIX := Decimal) := 0;
+DI_11 : BOOL (RADIX := Decimal) := 0;
+DI_12 : BOOL (RADIX := Decimal) := 0;
+DI_13 : BOOL (RADIX := Decimal) := 0;
+DI_14 : BOOL (RADIX := Decimal) := 0;
+DI_15 : BOOL (RADIX := Decimal) := 1;
+DI_DINT : DINT (RADIX := Decimal) := 0;
+DO_00 : BOOL (RADIX := Decimal) := 0;
+DO_01 : BOOL (RADIX := Decimal) := 0;
+DO_02 : BOOL (RADIX := Decimal) := 0;
+DO_03 : BOOL (RADIX := Decimal) := 0;
+DO_04 : BOOL (RADIX := Decimal) := 0;
+DO_05 : BOOL (RADIX := Decimal) := 0;
+DO_06 : BOOL (RADIX := Decimal) := 0;
+DO_07 : BOOL (RADIX := Decimal) := 0;
+DO_08 : BOOL (RADIX := Decimal) := 0;
+DO_09 : BOOL (RADIX := Decimal) := 0;
+DO_10 : BOOL (RADIX := Decimal) := 0;
+DO_11 : BOOL (RADIX := Decimal) := 1;
+DO_12 : BOOL (RADIX := Decimal) := 0;
+DO_13 : BOOL (RADIX := Decimal) := 1;
+DO_14 : BOOL (RADIX := Decimal) := 0;
+DO_15 : BOOL (RADIX := Decimal) := 0;
+DO_DINT : DINT (RADIX := Decimal) := 0;
+PB_LT_Seq : INT (RADIX := Decimal) := 12;
+Timer_01 : TIMER  := [663223,0,0];
+Timer_02 : TIMER  := [3862223,3000,0];
+Timer_03 : TIMER  := [-1069876327,7000,3274];
+Timer_04 : TIMER  := [3859223,7000,0];
+Timer_05 : TIMER  := [-1069876671,3000,2717];
+Timer_06 : TIMER  := [-1069876913,3000,2475];
+Timer_07 : TIMER  := [3808436,3000,0];
+Tower_Seq : INT (RADIX := Decimal) := 2;
+END_TAG
+
+PROGRAM MainProgram (MAIN := "MainRoutine",
+                     MODE := 0,
+                     DisableFlag := 0)
+TAG
+Addition1 : ADD_A  := [1,0,0,0,0];
+input1 : BOOL (RADIX := Decimal) := 0;
+input2 : BOOL (RADIX := Decimal) := 0;
+out1 : BOOL (RADIX := Decimal) := 0;
+END_TAG
+
+ST_ROUTINE IO_Map 
+	'DI_01 := Local:2:I.Data.0;
+	'DI_01 := Local:2:I.Data.1;
+	'DI_02:= Local:2:I.Data.2;
+	'DI_03 := Local:2:I.Data.3;
+	'DI_04 := Local:2:I.Data.4;
+	'DI_05 := Local:2:I.Data.5;
+	'DI_06 := Local:2:I.Data.6;
+	'DI_07 := Local:2:I.Data.7;
+	'DI_08 := Local:2:I.Data.8;
+	'DI_09 := Local:2:I.Data.9;
+	'DI_10 := Local:2:I.Data.10;
+	'DI_11 := Local:2:I.Data.11;
+	'DI_12 := Local:2:I.Data.12;
+	'DI_13 := Local:2:I.Data.13;
+	'DI_14 := Local:2:I.Data.14;
+	'DI_15 := Local:2:I.Data.15;
+	'
+	'
+	'DO_00 := Local:3:O.Data.0;
+	'DO_01 := Local:3:O.Data.1;
+	'DO_02 := Local:3:O.Data.2;
+	'DO_03 := Local:3:O.Data.3;
+	'DO_04 := Local:3:O.Data.4;
+	'DO_05 := Local:3:O.Data.5;
+	'DO_06 := Local:3:O.Data.6;
+	'DO_07 := Local:3:O.Data.7;
+	'DO_08 := Local:3:O.Data.8;
+	'DO_09 := Local:3:O.Data.9;
+	'DO_10 := Local:3:O.Data.10;
+	'DO_11 := Local:3:O.Data.11;
+	'DO_12 := Local:3:O.Data.12;
+	'DO_13 := Local:3:O.Data.13;
+	'DO_14 := Local:3:O.Data.14;
+	'DO_15 := Local:3:O.Data.15;
+	'
+	'
+END_ST_ROUTINE
+
+ROUTINE MainRoutine 
+		N: [XIC(Local:2:I.Data.0) ,EQU(PB_LT_Seq,1) ]OTE(Local:3:O.Data.0);
+		N: [XIC(Local:2:I.Data.1) ,EQU(PB_LT_Seq,2) ]OTE(Local:3:O.Data.1);
+		N: [XIC(Local:2:I.Data.2) ,EQU(PB_LT_Seq,3) ]OTE(Local:3:O.Data.2);
+		N: [XIC(Local:2:I.Data.3) ,EQU(PB_LT_Seq,4) ]OTE(Local:3:O.Data.3);
+		N: [XIC(Local:2:I.Data.4) ,EQU(PB_LT_Seq,5) ADD_A(Addition1,PB_LT_Seq,PB_LT_Seq) ]OTE(Local:3:O.Data.4);
+		N: [XIC(Local:2:I.Data.5) ,EQU(PB_LT_Seq,6) ]OTE(Local:3:O.Data.5);
+		N: [XIC(Local:2:I.Data.6) ,EQU(PB_LT_Seq,7) ]OTE(Local:3:O.Data.6);
+		N: [XIC(Local:2:I.Data.7) ,EQU(PB_LT_Seq,8) ]OTE(Local:3:O.Data.7);
+		N: [XIC(Local:2:I.Data.8) ,EQU(PB_LT_Seq,9) ]OTE(Local:3:O.Data.8);
+		N: [XIC(Local:2:I.Data.9) ,EQU(PB_LT_Seq,10) ]OTE(Local:3:O.Data.9);
+		N: [XIC(Local:2:I.Data.10) ,EQU(PB_LT_Seq,11) ]OTE(Local:3:O.Data.10);
+		N: [XIC(Local:2:I.Data.11) ,EQU(PB_LT_Seq,12) ]OTE(Local:3:O.Data.11);
+		N: XIO(Timer_05.DN)TON(Timer_05,?,?);
+		N: GRT(PB_LT_Seq,0)XIC(Timer_05.DN)ADD(PB_LT_Seq,1,PB_LT_Seq);
+		N: [XIC(Local:2:I.Data.15) EQU(PB_LT_Seq,0) ,GRT(PB_LT_Seq,12) ]MOV(1,PB_LT_Seq);
+		N: XIO(Local:2:I.Data.15)MOV(0,PB_LT_Seq);
+END_ROUTINE
+
+END_PROGRAM
+
+TASK MainTask (Type := CONTINUOUS,
+               Rate := 10,
+               Priority := 10,
+               Watchdog := 500,
+               DisableUpdateOutputs := No,
+               InhibitTask := No)
+		MainProgram;
+END_TASK
+
+CONFIG CST(SystemTimeMasterID := 0) END_CONFIG
+
+CONFIG TimeSynchronize(Priority1 := 128,
+                                 Priority2 := 128,
+                                 PTPEnable := 0) END_CONFIG
+
+CONFIG WallClockTime(LocalTimeAdjustment := 0,
+                     TimeZone := 0) END_CONFIG
+
+END_CONTROLLER
+
