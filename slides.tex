@@ -1,0 +1,87 @@
+% TODO:   check backup slides
+
+% HEADER
+    \pdfminorversion=4
+
+    \documentclass[presentation, aspectratio=54]{beamer}
+    % \documentclass[presentation, aspectratio=54, notes=show]{beamer}
+    % \documentclass[presentation, aspectratio=54, notes=only]{beamer}
+
+    % more compact beamer bibliography 
+    \setbeamertemplate{bibliography entry title}{}
+    \setbeamertemplate{bibliography entry location}{}
+    \setbeamertemplate{bibliography entry note}{}
+
+    % \includeonlyframes{inc}
+
+    \usepackage[utf8]{inputenc}
+    \usepackage[T1]{fontenc}
+    \usepackage{graphicx}
+    \usepackage{longtable}
+    \usepackage{float}
+    \usepackage{wrapfig}
+    \usepackage{rotating}
+    \usepackage[normalem]{ulem}
+    \usepackage{amsmath}
+    \usepackage{textcomp}
+    \usepackage{marvosym}
+    \usepackage{wasysym}
+    \usepackage{amssymb}
+    \usepackage{hyperref}
+    \tolerance=1000
+
+    \usepackage{listings}
+    % fancy listings compile with -shell-escape
+    % use a fragile frame
+    \usepackage{minted}
+    \definecolor{code-bg}{rgb}{0.95,0.95,0.95}
+
+    % choose theme
+    \input{sutd-theme-light}
+
+    % colour href links
+    \definecolor{links}{HTML}{2A1B81}
+    \hypersetup{colorlinks,linkcolor=,urlcolor=links}
+
+    \usetheme{default}
+    \title{Security Flaws induced by CBC Padding}
+    \author{\textsc{\underline{Anand Agrawal}}\ \and
+    \textsc{\underline{Guarnizo Juan}}}
+    % \institute{SUTD}  TODO: does not work
+
+    % use with pandoc
+    \providecommand{\tightlist}{%
+          \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% OUTLINE AUTOMATICA DI FINE SEZIONE
+% \AtBeginSection[]{
+% \begin{frame}[label=]
+%     \frametitle{Table of Contents}
+%     \tableofcontents[currentsection]
+% \end{frame}
+% }
+
+% TODO: spellcheck
+\begin{document}
+
+
+\frame{\titlepage}
+
+
+
+\input{"mdslides.tex"}
+
+% \begin{frame}[label=inc]
+%     \frametitle{Outline}
+%     \tableofcontents
+% \end{frame}
+
+% \begin{frame}[allowframebreaks]
+%     \frametitle{References}
+%     \bibliographystyle{acm}
+%     \bibliography{sqli}
+% \end{frame}
+
+%\input{"mdbackup.tex"}
+
+\end{document}
