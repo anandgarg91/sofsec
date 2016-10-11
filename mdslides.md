@@ -1,6 +1,15 @@
-# Abstract
+# Overview
 
-## Side Channel Attacks on CBC 
+
+## General Description 
+
+* Presenting paper " Security Flaws Induced by CBC Padding"
+    * Author of the paper "Serge Vaudevan" from "EPFL"
+    * Published in International Conf. of Theory and Application of cryptographic techniques
+    * Publisher Springer Berlin Heidelberg in the year 2002
+
+
+### Abstract
 
 * Messages are preformated and encrypted in CBC block cipher
     * Decryption validate the format
@@ -14,10 +23,15 @@
 
 # Introduction
 
+## Block Cipher Cryptography
+
+* TODO
+    * TODO
+
 ## Working of CBC
   	
 * RC5-CBC_PAD algorithm is used to encrypt
-    * Encrytion of blocks b (8 words)
+    * Encryption of blocks b (8 words)
     * Each word is of one byte
     * Padding technique used is PKCS7
     * Pad the word sequence with n words
@@ -29,21 +43,18 @@
 $y_1 = C(IV \oplus x_1), y_i = C(y_{i-1} \oplus x_i); i = 2,.... N$
 
 
+### How Receiver Behaves
+
+* How Reciever behaves if padding is not correct?
+    * This question leads to oracle attack
+    * Attack works with complexity O(NbW)
+* Where W is Number of possible Words
 
 
     <!--- * add pauses -->
     <!--- * check `pdfpc` -->
 <!--- * NOTE: 20-22 min talk + 5 min Q&A -->
 
-
-# Motivation
-
-## How Receiver Behaves
-
-* How Reciever behaves if padding is not correct?
-    * This question leads to oracle attack
-    * Attack works with complexity O(NbW)
-* Where W is Number of possible Words
 
 # Properties
 
@@ -76,6 +87,14 @@ $y_1 = C(IV \oplus x_1), y_i = C(y_{i-1} \oplus x_i); i = 2,.... N$
 
 #  Attacks
 
+## Side Channel Attack
+
+* What is Side Channel Attack ?
+    * TODO
+
+
+
+
 ## Oracle Attack
 
 ### Let b the block length in words and W be the number of possible words then Oracle 'O' will yield 1, if decrytion in CBC has correct padding. Oracle 'O' is defined by C and IV.
@@ -98,5 +117,12 @@ $y_1 = C(IV \oplus x_1), y_i = C(y_{i-1} \oplus x_i); i = 2,.... N$
 ## Discussion of different padding scheme
 
   * TODO
-    * TOTO   
+    * here you can change
+
+# Evaluation
+
+## Testing the launch attack
+
+* How we test our launched attack?
+    * TODO
  
