@@ -67,6 +67,12 @@ $y_1 = C(IV \oplus x_1), y_i = C(y_{i-1} \oplus x_i); i = 2,.... N$
     * According to Birthday Paradox can be given as
       $P = 1 - e^{-1/2N^2.W^{-b}}$
 
+  * Authentication Limits
+    * CBC can be used to create MAC
+    * One can forge the MAC by analysing the augmented pattern 
+    * To fix it CBS-MAC is encrypted
+    * Still it can be attack with complexity of $W^{b/2}$
 
-#  TODO
+
+#  Attacks
  
