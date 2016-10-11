@@ -25,10 +25,30 @@
 
 ## Block Cipher Cryptography
 
-* TODO
-    * TODO
+
+* Block cipher is a deterministic algorithm
+    * Operates on fixed-length input called blocks
+    * It has Encryption (E) and Decryption (D) function on sender and reciever side respectively.
+    * Both function take two arguements ie. input and key 'k'
+    * Decryption function is defined as D = $E^{-1}$
+
+\centerline{\includegraphics[width=.3\linewidth]{figs/block-cipher}}
+
+\centerline{Encrytion in Block-Cipher}
+
+
+
+
+* Block cipher is defined by an Encryption function as
+    * $E_k(P) := E(k,P) : \{0,1\}^k * \{0,1\}^n -> \{0,1\}^n$ where n is length of bit string p
 
 ## Working of CBC
+
+
+\centerline{\includegraphics[width=.6\linewidth]{figs/cbc}}
+
+\centerline{Cipher Block Chaining}
+
   	
 * RC5-CBC_PAD algorithm is used to encrypt
     * Encryption of blocks b (8 words)
@@ -43,12 +63,7 @@
 $y_1 = C(IV \oplus x_1), y_i = C(y_{i-1} \oplus x_i); i = 2,.... N$
 
 
-### How Receiver Behaves
 
-* How Reciever behaves if padding is not correct?
-    * This question leads to oracle attack
-    * Attack works with complexity O(NbW)
-* Where W is Number of possible Words
 
 
     <!--- * add pauses -->
@@ -81,7 +96,7 @@ $y_1 = C(IV \oplus x_1), y_i = C(y_{i-1} \oplus x_i); i = 2,.... N$
   * Authentication Limits
     * CBC can be used to create MAC
     * One can forge the MAC by analysing the augmented pattern 
-    * To fix it CBS-MAC is encrypted
+    * To fix it CBc-MAC is encrypted
     * Still it can be attack with complexity of $W^{b/2}$
 
 
@@ -90,8 +105,21 @@ $y_1 = C(IV \oplus x_1), y_i = C(y_{i-1} \oplus x_i); i = 2,.... N$
 ## Side Channel Attack
 
 * What is Side Channel Attack ?
-    * TODO
+    * Attack based on information gained from physical implementation
+    * Rather than Brute force looking for attribute which leaks useful information
+    * Mostly side channel attacks are based on statistical analysis
 
+* Side channel attack use side information from the system to unevil some secret information
+    * The CBC mode of a block cipher with the combination of well-known PKCS7 padding method
+is defacto stnadard CBC usage.
+   
+
+### How Receiver Behaves on such attack ?
+
+* How Reciever behaves if padding is not correct?
+    * This question leads to oracle attack
+    * Attack works with complexity O(NbW)
+* Where W is Number of possible Words
 
 
 
