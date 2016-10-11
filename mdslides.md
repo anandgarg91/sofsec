@@ -75,4 +75,28 @@ $y_1 = C(IV \oplus x_1), y_i = C(y_{i-1} \oplus x_i); i = 2,.... N$
 
 
 #  Attacks
+
+## Oracle Attack
+
+### Let b the block length in words and W be the number of possible words then Oracle 'O' will yield 1, if decrytion in CBC has correct padding. Oracle 'O' is defined by C and IV.
+
+  * Last Word Oracle 
+    * Need to compute last word of $C^{-1}$(y)
+    * Let $r_1.....r_b$ be random words
+    * We forge a ciphertext and perform $C^{-1} \oplus r$
+    * If $C^{-1} \oplus r$ = 1 then its a valid padding
+    * Resulting $C^{-1}$(y) is $r_b \oplus 1$
+      
+  * Block Decryption oracle
+    * Let $a_1....a_b$ be the word sequence of $C^{-1}(y)$.
+    * Get $a_b$ by last word  oralce
+    * Iterate until recover whole sequence
+    * Need W/2 trials on average, since b words/block need bW/2
+
+# Padding scheme
+
+## Discussion of different padding scheme
+
+  * TODO
+    * TOTO   
  
