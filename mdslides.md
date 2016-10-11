@@ -21,6 +21,7 @@
       the problem
   
 
+
 # Introduction
 
 ## Block Cipher Cryptography
@@ -98,6 +99,18 @@ $y_1 = C(IV \oplus x_1), y_i = C(y_{i-1} \oplus x_i); i = 2,.... N$
     * One can forge the MAC by analysing the augmented pattern 
     * To fix it CBc-MAC is encrypted
     * Still it can be attack with complexity of $W^{b/2}$
+
+# Realization
+
+## Mind Map
+
+* \checkmark represents work done
+
+* $\times$ represents work not done.
+
+\centerline{\includegraphics[width=.5\linewidth]{figs/map}}
+
+\centerline{Mind Map}
 
 
 #  Attacks
