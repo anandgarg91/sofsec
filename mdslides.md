@@ -32,7 +32,7 @@
 
 ## CBC - Cipher block chaining
 
-\centerline{\includegraphics[width=.8\linewidth]{figs/cbc-enc-dec}}
+\centerline{\includegraphics[width=1\linewidth]{figs/cbc-enc-dec}}
 
 * CBC mode works:
     * Every plaintext block to be encrypted $P_i$ is XOR-ed with the previous ciphertext $C_{i-1}$.
@@ -108,10 +108,18 @@
     * Attack based on information gained from implementation.
     * Rather than Brute force looking for attribute which leaks useful information.
     * Mostly side channel attacks are based on statistical analysis.
+    * Example: Acoustic cryptoanalysis - attacks that exploit sound produced during a computation.
 
 ## Padding oracle Attack
 
-### How Receiver Behaves on such attack ?
+\centerline{\includegraphics[width=0.4\linewidth]{figs/oracle-attack-before-plaintext}}
+
+* This attack is able to "guess" the plaintext from ciphertext in a crypto-system implementation where there is an __oracle__ (denote by $O$) and within it is possible to distinguish padding error to the others.
+
+* Through this attack, the complexity of this attack is significantly less than others attacks (i.e.: brute force on the private key).
+
+## How it works?
+
 
 * Side channel attack use side information from the system to unevil some secret information
     * The CBC mode of a block cipher with the combination of well-known PKCS7 padding method
