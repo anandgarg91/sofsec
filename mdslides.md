@@ -109,7 +109,7 @@
     * Rather than Brute force looking for attribute which leaks useful information.
     * Mostly side channel attacks are based on statistical analysis.
 
-## Padding oracle Attack
+## Padding of oracle Attack
 
 ### How Receiver Behaves on such attack ?
 
@@ -121,6 +121,8 @@ is defacto stnadard CBC usage.
     * This question leads to oracle attack
     * Attack works with complexity O(NbW)
 * Where W is Number of possible Words
+
+## Oracle Attack
 
 ### Let b the block length in words and W be the number of possible words then Oracle 'O' will yield 1, if decrytion in CBC has correct padding. Oracle 'O' is defined by C and IV.
 
