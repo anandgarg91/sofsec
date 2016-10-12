@@ -38,8 +38,8 @@
     * Every plaintext block to be encrypted $P_i$ is XOR-ed with the previous ciphertext $C_{i-1}$.
     * The ciphertext $C_0$ is an initialization vector.
     * When the length of the last plaintext block is not equal to the fixed block size, padding techniques are required (i.e.: PKCS7).
-    * Encryption $C_i = E_k(C_{i-1} \oplus P_i); C_0 = IV; i = 2,\dots, N$
-    * Decryption $P_i = E^{-1}_k(C_i) \oplus C_{i-1}; C_0 = IV; i = 2,\dots, N$
+    * Encryption $C_i = E_k(C_{i-1} \oplus P_i); C_0 = IV; i = 1,\dots, N$
+    * Decryption $P_i = E^{-1}_k(C_i) \oplus C_{i-1}; C_0 = IV; i = 1,\dots, N$
 
 # Properties
 
@@ -114,21 +114,18 @@
 
 \centerline{\includegraphics[width=0.4\linewidth]{figs/oracle-attack-before-plaintext}}
 
-* This attack is able to "guess" the plaintext from ciphertext in a crypto-system implementation where there is an __oracle__ (denote by $O$) and within it is possible to distinguish padding error to the others.
+* This attack is able to "guess" the plaintext from ciphertext in a crypto-system implementation where there is an __oracle__ (denote by $O$) and within it is possible to distinguish padding error to the others when it try to decrypt messages.
 
-* Through this attack, the complexity of this attack is significantly less than others attacks (i.e.: brute force on the private key).
+* The complexity of this attack is significantly less than others attacks (i.e.: brute force on the private key).
 
-## How it works?
+## Crypto-system implementation
 
+\centerline{\includegraphics[width=.7\linewidth]{figs/crypto-system}}
 
-* Side channel attack use side information from the system to unevil some secret information
-    * The CBC mode of a block cipher with the combination of well-known PKCS7 padding method
-is defacto stnadard CBC usage.
+* Let's suppose that Lisa is sending messages to Nelson. They are using RC5/CBC/PKCS7 to encrypt the messages with a pre-shared key; Milhouse is able to see and store the encrypted messages, but he doesn't know the key.
 
-* How Reciever behaves if padding is not correct?
-    * This question leads to oracle attack
-    * Attack works with complexity O(NbW)
-* Where W is Number of possible Words
+* To do the padding oracle attack possible, it is required that Nelson has a distinguished behaviour when he receives encrypted messages $C_x$ with padding errors.
+
 
 ## Oracle Attack
 
