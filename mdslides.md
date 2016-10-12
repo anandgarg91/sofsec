@@ -75,13 +75,13 @@
 
 * In case of a message doesn't a length multiple of $b$, it is necessary to apply padding techniques on the last block.
 
-* The are different thechnique for padding, one of the mosts common is PKCS7.
+* The are different thechnique for padding, such as ANSI X.923, ISO 10126, Zero padding.
 
-* PKCS7 consists to add bytes with value number of bytes that are added.
+* PKCS7 is one of the most commonly used and it consists to add bytes with value number of bytes that are added.
 
 * Example:
 \centerline{block $P_{N-1}$ | dd dd dd dd dd dd dd dd |\break}
-\centerline{block $P_{N}$ | dd dd 06 06 06 06 06 06 |}
+\centerline{block $P_{N} $ | dd dd 06 06 06 06 06 06 |}
 
     <!--- * add pauses -->
     <!--- * check `pdfpc` -->
