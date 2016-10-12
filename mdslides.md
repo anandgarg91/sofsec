@@ -61,21 +61,6 @@
     * Encrytion technique used is CBC
 $y_1 = C(IV \oplus x_1), y_i = C(y_{i-1} \oplus x_i); i = 2,.... N$
 
-## PKCS7 - Padding technique
-
-* In case of a message doesn't length multiple of b, it is necessary to apply padding techniques on the last block.
-
-* PKCS7 consists to add bytes with value number of bytes that are added.
-
-* Example:
-| DD DD DD DD DD DD DD DD | DD DD 06 06 06 06 06 06 |
-
-
-    <!--- * add pauses -->
-    <!--- * check `pdfpc` -->
-<!--- * NOTE: 20-22 min talk + 5 min Q&A -->
-
-
 # Properties
 
 ## CBC properties
@@ -103,6 +88,23 @@ $y_1 = C(IV \oplus x_1), y_i = C(y_{i-1} \oplus x_i); i = 2,.... N$
     * One can forge the MAC by analysing the augmented pattern
     * To fix it CBc-MAC is encrypted
     * Still it can be attack with complexity of $W^{b/2}$
+
+# Padding
+
+## PKCS7 - Padding technique
+
+* In case of a message doesn't length multiple of b, it is necessary to apply padding techniques on the last block.
+
+* The are different thechnique for padding, one of the mosts common is PKCS7.
+
+* PKCS7 consists to add bytes with value number of bytes that are added.
+
+* Example:
+| DD DD DD DD DD DD DD DD | DD DD 06 06 06 06 06 06 |
+
+    <!--- * add pauses -->
+    <!--- * check `pdfpc` -->
+<!--- * NOTE: 20-22 min talk + 5 min Q&A -->
 
 # Realization
 
