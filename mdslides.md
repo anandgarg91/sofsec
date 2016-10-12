@@ -80,16 +80,16 @@
 * PKCS7 is one of the most commonly used and it consists to add bytes with value number of bytes that are added.
 
     * Example six bytes for padding:
-\centerline{block $P_{N-1}$ | dd dd dd dd dd dd dd dd |}
-\centerline{block $P_{N} $ | dd dd \bf{06 06 06 06 06 06} |}
+\centerline{block $P_{N-1}$ |dd dd dd dd dd dd dd dd|}
+\centerline{block $P_{N} $ |dd dd \bf{06 06 06 06 06 06}|}
 
     * Example one byte for padding:
-\centerline{block $P_{N-1}$ | dd dd dd dd dd dd dd dd |}
-\centerline{block $P_{N} $ | dd dd dd dd dd dd dd \bf{01} |}
+\centerline{block $P_{N-1}$ |dd dd dd dd dd dd dd dd|}
+\centerline{block $P_{N}$ |dd dd dd dd dd dd dd \bf{01}|}
 
     * Example NO padding:
-\centerline{block $P_{N-1}$ | dd dd dd dd dd dd dd dd |}
-\centerline{block $P_{N} $ | \bf{08 08 08 08 08 08 08 08} |}
+\centerline{block $P_{N-1}$ |dd dd dd dd dd dd dd dd|}
+\centerline{block $P_{N}$ |\bf{08 08 08 08 08 08 08 08}|}
 
     <!--- * add pauses -->
     <!--- * check `pdfpc` -->
@@ -165,16 +165,16 @@
 * Remember how the padding PKCS7 works.
 
     * Example six bytes for padding:
-\centerline{block $P_{N-1}$ | dd dd dd dd dd dd dd dd |}
-\centerline{block $P_{N} $ | dd dd \bf{06 06 06 06 06 06} |}
+\centerline{block $P_{N-1}$ |dd dd dd dd dd dd dd dd|}
+\centerline{block $P_{N}$ |dd dd \bf{06 06 06 06 06 06}|}
 
     * Example one byte for padding:
-\centerline{block $P_{N-1}$ | dd dd dd dd dd dd dd dd |}
-\centerline{block $P_{N} $ | dd dd dd dd dd dd dd \bf{01} |}
+\centerline{block $P_{N-1}$ |dd dd dd dd dd dd dd dd|}
+\centerline{block $P_{N}$ |dd dd dd dd dd dd dd \bf{01}|}
 
     * Example NO padding:
-\centerline{block $P_{N-1}$ | dd dd dd dd dd dd dd dd |}
-\centerline{block $P_{N} $ | \bf{08 08 08 08 08 08 08 08} |}
+\centerline{block $P_{N-1}$ |dd dd dd dd dd dd dd dd|}
+\centerline{block $P_{N}$ |\bf{08 08 08 08 08 08 08 08}|}
 
 
 ## The aim of the attack
@@ -182,15 +182,15 @@
 \centerline{\includegraphics[width=0.3\linewidth]{figs/oracle-attack-before-plaintext}}
 
 * First cycle, to find $\{y_b\} \in C_\theta$ such that:
-\centerline{$C_\theta \oplus E^{-1}_k(C_3) =$ \{$d_r$ $d_r$ $d_r$ $d_r$ $d_r$ $d_r$ $d_r$ 01 \}}
+\centerline{$C_\theta \oplus E^{-1}_k(C_3) =$ \{$d_r$ $d_r$ $d_r$ $d_r$ $d_r$ $d_r$ $d_r$ 01\}}
 
 * Second cycle, to find $\{y_{b-1} \oplus 2, y_b \oplus 2\} \in C_\theta$ such that:
-\centerline{$C_\theta \oplus E^{-1}_k(C_3) =$ \{$d_r$ $d_r$ $d_r$ $d_r$ $d_r$ $d_r$ 02 02 \}}
+\centerline{$C_\theta \oplus E^{-1}_k(C_3) =$ \{$d_r$ $d_r$ $d_r$ $d_r$ $d_r$ $d_r$ 02 02\}}
 
 *
 
 * Last cycle, to find $\{y_0 \oplus 8,\dots, y_{b-1} \oplus 8, y_b \oplus 8\} \in C_\theta$ with such that:
-\centerline{$C_\theta \oplus E^{-1}_k(C_3) =$ \{08 08 08 08 08 08 08 08 \}}
+\centerline{$C_\theta \oplus E^{-1}_k(C_3) =$ \{08 08 08 08 08 08 08 08\}}
 
 ## Getting the plaintext
 
