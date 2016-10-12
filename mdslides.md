@@ -119,19 +119,18 @@ $y_1 = C(IV \oplus x_1), y_i = C(y_{i-1} \oplus x_i); i = 2,.... N$
 \centerline{Mind Map}
 
 
-#  Attacks
+#  Attack
 
 ## Side Channel Attack
 
 * What is Side Channel Attack ?
-    * Attack based on information gained from physical implementation
-    * Rather than Brute force looking for attribute which leaks useful information
-    * Mostly side channel attacks are based on statistical analysis
+    * Attack based on information gained from implementation.
+    * Rather than Brute force looking for attribute which leaks useful information.
+    * Mostly side channel attacks are based on statistical analysis.
 
 * Side channel attack use side information from the system to unevil some secret information
     * The CBC mode of a block cipher with the combination of well-known PKCS7 padding method
 is defacto stnadard CBC usage.
-
 
 ### How Receiver Behaves on such attack ?
 
@@ -141,8 +140,7 @@ is defacto stnadard CBC usage.
 * Where W is Number of possible Words
 
 
-
-## Oracle Attack
+## Padding oracle Attack
 
 ### Let b the block length in words and W be the number of possible words then Oracle 'O' will yield 1, if decrytion in CBC has correct padding. Oracle 'O' is defined by C and IV.
 
