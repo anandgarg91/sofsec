@@ -120,40 +120,29 @@
 
 ## Crypto-system implementation
 
-\centerline{\includegraphics[width=.7\linewidth]{figs/crypto-system}}
+\centerline{\includegraphics[width=.6\linewidth]{figs/crypto-system}}
 
-* Let's suppose that Lisa is sending messages to Nelson. They are using RC5/CBC/PKCS7 to encrypt the messages with a pre-shared key; Milhouse is able to see and store the encrypted messages, but he doesn't know the key.
+* Let's suppose that Lisa is sending messages to Nelson. They are using RC5/CBC/PKCS7 to encrypt the messages with a pre-shared private key; Milhouse is able to see and store the encrypted messages, but he doesn't know the key.
 
-* To do the padding oracle attack possible, it is required that Nelson has a distinguished behaviour when he receives encrypted messages $C_x$ with padding errors.
+* To do the padding oracle attack possible, it is required that Nelson does a distinguished behaviour when he receives encrypted messages $C_m$ with padding errors.
 
 
-## Oracle Attack
+## How it works?
 
-### Let b the block length in words and W be the number of possible words then Oracle 'O' will yield 1, if decrytion in CBC has correct padding. Oracle 'O' is defined by C and IV.
+\centerline{\includegraphics[width=.6\linewidth]{figs/crypto-system}}
 
-  * Last Word Oracle
-    * Need to compute last word of $C^{-1}$(y)
-    * Let $r_1.....r_b$ be random words
-    * We forge a ciphertext and perform $C^{-1} \oplus r$
-    * If $C^{-1} \oplus r$ = 1 then its a valid padding
-    * Resulting $C^{-1}$(y) is $r_b \oplus 1$
+* In the above scenario, we have the next elements:
+    * $b$: block size, 8 words (bytes)
+    * $W$: possible values of each word, $\{0,\dots, 255\}$
+    * $N$: Number of blocks generated for the message. Let's suppose the encrypted message is compused by $C_m = \{IV, C_1, C_2, C_3\}$.
+    * $IV$: Initialization vector, commonly it is random and public.
+    * $O$: Oracle, in this case is Nelson.
 
-  * Block Decryption oracle
-    * Let $a_1....a_b$ be the word sequence of $C^{-1}(y)$.
-    * Get $a_b$ by last word  oralce
-    * Iterate until recover whole sequence
-    * Need W/2 trials on average, since b words/block need bW/2
+## How it works?
 
-# Padding scheme
+\centerline{\includegraphics[width=.6\linewidth]{figs/crypto-system}}
 
-## Discussion of different padding scheme
-
-  * TODO
-    * here you can change
-
-# Evaluation
-
-## Testing the launch attack
-
-* How we test our launched attack?
-    * TODO
+* To perform the attack, Milhouse will do the next steps:
+    1. Take the last encrypted block, $C_3$ and it is composed by $\{r_0,\dots,r_b\}$.
+    2. Create a random fake block called $\Theta_g = \{v_0,\dots,v_b\}$, he will change the values byte to byte, since the last one to the first one.
+    3. Concatenate the fake block with the encrypted block, $C_m' = \{\Theta_g | C_3\}$.
