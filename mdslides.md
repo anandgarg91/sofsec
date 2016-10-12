@@ -1,65 +1,45 @@
 # Overview
 
-
 ## General Description
 
-* Presenting paper " Security Flaws Induced by CBC Padding"
+* Presenting paper "Security Flaws Induced by CBC Padding"
     * Author of the paper "Serge Vaudevan" from "EPFL"
-    * Published in International Conf. of Theory and Application of cryptographic techniques
+    * Published in International Conference of Theory and Application of cryptographic techniques
     * Publisher Springer Berlin Heidelberg in the year 2002
 
 
-### Abstract
+### Summary
 
 * In this paper is showed an efficient side-channel attack on CBC encryption mode. It use the concept of padding to leak easily information in a cryptographic implementation.
 
-* It include potencial vulnerable applications and some solutions are propused to fix and prevent the attack.
-
-* Messages are preformated and encrypted in CBC block cipher
-    * Decryption validate the format
-    * Receiver sends the validity of format (Ack)
-
-* Side channel attack is performed
-    * Using the concept of padding
-    * Other padding techiniques is discussed to fix
-      the problem
+* It includes potencial vulnerable applications and some solutions are propused to fix and prevent the attack.
 
 # Introduction
 
 ## Block Cipher Cryptography
 
-* Block cipher is a deterministic algorithm
-    * Operates on fixed-length input called blocks.
-    * It has Encryption (E) and Decryption (D) function on sender and reciever side respectively.
-    * Both function take at least two arguements, input (plaintext or message) and key 'k'.
-    * Decryption function is defined as D = $E^{-1}$.
-    * Any block to be encrypted or decrypted has to have the defined length size strictly.
+* It is a deterministic algorithm
+* Operates on fixed-length (denote by $b$) input called blocks.
+* Messages are divided in $N$ blocks, such that $M = \{P_1,\dots, P_N\}$.
+* Any plaintext block $P_i$ has to strictly have the fixed block size length before to apply encrypting/decrypting function.
 
-\centerline{\includegraphics[width=.3\linewidth]{figs/block-cipher}}
+\centerline{\includegraphics[width=.5\linewidth]{figs/block-cipher-entropy}}
 
-\centerline{Encrytion in Block-Cipher}
+### Operation modes
 
-* Block cipher is defined by an Encryption function as
-    * $E_k(P) := E(k,P) : \{0,1\}^k * \{0,1\}^n -> \{0,1\}^n$ where n is length of bit string p
-
-## Working of CBC
-
-\centerline{\includegraphics[width=.6\linewidth]{figs/cbc}}
-
-\centerline{Cipher Block Chaining}
+* For increasing the entropy, there are different modes to operate block ciphers, such as ECB, CBC, PCPC, CFB, and others.
 
 
-* CBC mode is used to encrypt
-    * Encryption of blocks of size b (i.e.: 8 words)
-    * Each word is of one byte
-    * Padding techniques are required. (i.e.: PKCS7)
-    * Pad the word sequence with n words
-    * Every padded word is equal to n
-    * Padded sequence make length multiple of b
-    * Divide the padded word sequence into blocks ($x_1$ .... $x_N$)
-    * Each block consists of b words
-    * Encrytion technique used is CBC
-$y_1 = C(IV \oplus x_1), y_i = C(y_{i-1} \oplus x_i); i = 2,.... N$
+## CBC - Cipher block chaining
+
+\centerline{\includegraphics[width=.8\linewidth]{figs/cbc-enc-dec}}
+
+* CBC mode works:
+    * Every plaintext block to be encrypted $P_i$ is XOR-ed with the previous ciphertext $C_{i-1}$.
+    * The ciphertext $C_0$ is an initialization vector.
+    * When the length of the last plaintext block is not equal to the fixed block size, padding techniques are required (i.e.: PKCS7).
+    * Encryption $C_i = E_k(C_{i-1} \oplus P_i); C_0 = IV; i = 2,\dots, N$
+    * Decryption $P_i = E^{-1}_k(C_i) \oplus C_{i-1}; C_0 = IV; i = 2,\dots, N$
 
 # Properties
 
@@ -93,14 +73,15 @@ $y_1 = C(IV \oplus x_1), y_i = C(y_{i-1} \oplus x_i); i = 2,.... N$
 
 ## PKCS7 - Padding technique
 
-* In case of a message doesn't length multiple of b, it is necessary to apply padding techniques on the last block.
+* In case of a message doesn't a length multiple of $b$, it is necessary to apply padding techniques on the last block.
 
 * The are different thechnique for padding, one of the mosts common is PKCS7.
 
 * PKCS7 consists to add bytes with value number of bytes that are added.
 
 * Example:
-| DD DD DD DD DD DD DD DD | DD DD 06 06 06 06 06 06 |
+\centerline{block $P_{N-1}$ | dd dd dd dd dd dd dd dd |\break}
+\centerline{block $P_{N}$ | dd dd 06 06 06 06 06 06 |}
 
     <!--- * add pauses -->
     <!--- * check `pdfpc` -->
@@ -128,19 +109,18 @@ $y_1 = C(IV \oplus x_1), y_i = C(y_{i-1} \oplus x_i); i = 2,.... N$
     * Rather than Brute force looking for attribute which leaks useful information.
     * Mostly side channel attacks are based on statistical analysis.
 
+## Padding oracle Attack
+
+### How Receiver Behaves on such attack ?
+
 * Side channel attack use side information from the system to unevil some secret information
     * The CBC mode of a block cipher with the combination of well-known PKCS7 padding method
 is defacto stnadard CBC usage.
-
-### How Receiver Behaves on such attack ?
 
 * How Reciever behaves if padding is not correct?
     * This question leads to oracle attack
     * Attack works with complexity O(NbW)
 * Where W is Number of possible Words
-
-
-## Padding oracle Attack
 
 ### Let b the block length in words and W be the number of possible words then Oracle 'O' will yield 1, if decrytion in CBC has correct padding. Oracle 'O' is defined by C and IV.
 
