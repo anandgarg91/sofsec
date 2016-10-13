@@ -3,10 +3,9 @@
 ## General Description
 
 * Presenting paper "Security Flaws Induced by CBC Padding"
-    * Author of the paper "Serge Vaudevan" from "EPFL"
-    * Published in International Conference of Theory and Application of cryptographic techniques
-    * Publisher Springer Berlin Heidelberg in the year 2002
-
+    * Author: Serge Vaudenay, Affiliated with Swiss Federal Institute of Technology
+    * Published in: EUROCRYPT
+    * Year: 2002
 
 ### Summary
 
