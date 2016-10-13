@@ -9,9 +9,9 @@
 
 ### Summary
 
-* In this paper, the author shows an efficient side-channel attack on CBC encryption mode. he uses the concept of padding to leaks easily information in a cryptographic implementation.
+* In this paper, the author shows an efficient side-channel attack on CBC encryption mode. It uses padding functions to leak information in a cryptographic implementation.
 
-* It includes a list of potencial vulnerable applications and some solutions are propused to fix and prevent the attack.
+* The paper includes a list of potencial vulnerable applications and some solutions are propused to fix and prevent the attack.
 
 # Introduction
 
@@ -26,7 +26,7 @@
 
 ### Operation modes
 
-* For increasing the entropy, there are different modes to operate block ciphers, such as ECB, CBC, PCPC, CFB, and others.
+* For increasing the entropy in ciphertext, there are different modes to operate block ciphers, such as ECB, CBC, PCPC, CFB, and others.
 
 
 ## CBC - Cipher block chaining
