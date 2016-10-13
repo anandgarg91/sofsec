@@ -40,33 +40,6 @@
     * Encryption $C_i = E_k(C_{i-1} \oplus P_i); C_0 = IV; i = 1,\dots, N$
     * Decryption $P_i = E^{-1}_k(C_i) \oplus C_{i-1}; C_0 = IV; i = 1,\dots, N$
 
-# Properties
-
-## CBC properties
-
-  * Efficiency
-    * Constant memory used for infinite length message
-    * On ECB simple ciphertext manipulation attack possible
-    * CBC bring higher message entropy
-    * Exhaustive search on CBC mode depends on length of key
-
-
-  * Confidentiality Limits
-
-    * Due to fix IV, Easy to decode prefix block
-    * In case two ciphertext are same
-    * If Two ciphertext $y_i$ and $y_j$ are equal
-      $y_{i-1} \oplus y_{j-1} = x_i \oplus x_j$
-    * Redundancy in plaintext can help to get $x_i and x_j$
-    * Two words are equal out of N
-    * According to Birthday Paradox can be given as
-      $P = 1 - e^{-1/2N^2.W^{-b}}$
-
-  * Authentication Limits
-    * CBC can be used to create MAC
-    * One can forge the MAC by analysing the augmented pattern
-    * To fix it CBc-MAC is encrypted
-    * Still it can be attack with complexity of $W^{b/2}$
 
 # Padding
 
@@ -90,24 +63,9 @@
 \centerline{block $P_{N-1}$ |dd dd dd dd dd dd dd dd|}
 \centerline{block $P_{N}$ |\bf{08 08 08 08 08 08 08 08}|}
 
-    <!--- * add pauses -->
-    <!--- * check `pdfpc` -->
-<!--- * NOTE: 20-22 min talk + 5 min Q&A -->
-
-# Realization
-
-## Mind Map
-
-* \checkmark represents work done
-
-* $\times$ represents work not done.
-
-\centerline{\includegraphics[width=.5\linewidth]{figs/map}}
-
-\centerline{Mind Map}
-
-
 #  Attack
+
+
 
 ## Side Channel Attack
 
@@ -201,3 +159,16 @@
 * To decrypt completely the message, Milhouse has to calculate a $C^\theta$ for each $C_i$ in the encrypted message.
 
 \centerline{\includegraphics[width=0.1\linewidth]{figs/milhouse}}
+
+
+# Realization
+
+## Mind Map
+
+* \checkmark represents work done
+
+* $\times$ represents work not done.
+
+\centerline{\includegraphics[width=.5\linewidth]{figs/map}}
+
+\centerline{Mind Map}
