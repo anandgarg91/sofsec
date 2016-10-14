@@ -172,3 +172,11 @@
 \centerline{\includegraphics[width=.5\linewidth]{figs/map}}
 
 \centerline{Mind Map}
+
+# 
+
+## \centerline{THANK YOU !}
+
+\centerline{Questions ?}
+
+
